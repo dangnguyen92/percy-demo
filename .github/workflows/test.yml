@@ -3,26 +3,24 @@ on:
   push:
     branches:
       - main
+
 jobs:
   e2e-test:
-    build:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-node@v3
-          with:
-            node-version: '18'
-        - name: Install dependencies
-          run: npm install
-        - name: Install supported browsers
-          run: npx playwright install
-        - name: Capture production screenshots
-          run: npm run cap:pro
-          env:
-            PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-        - name: Start app
-          run: npm run start
-        - name: Run tests
-          run: npm run start-test
-          env:
-            PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+    runs-on: ubuntu-latest
+    env:
+      PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install dependencies
+        run: npm install
+      - name: Install supported browsers
+        run: npx playwright install
+      - name: Capture production screenshots
+        run: npm run cap:pro
+      - name: Start app
+        run: npm run start
+      - name: Run tests
+        run: npm run start-test
