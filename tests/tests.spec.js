@@ -17,7 +17,7 @@ test('TC_1: Validate UIs on the page', async ({ page }) => {
   const addMealPage = new AddMealPage(page);
 
   console.log('Visit home page');
-  await page.goto(' http://localhost:3000', { waitUntil: 'networkidle' });
+  await page.goto('http://localhost:3000/', { waitUntil: 'networkidle' });
 
   console.log('Verify HomePage is visible: Logo app & Cart button');
   await homePage.verifyHomePageVisible();
@@ -30,7 +30,7 @@ test('TC_1: Validate UIs on the page', async ({ page }) => {
 
   await percySnapshot(page, 'Example Page 1');
 
-  await page.goto(' http://bing.com', { waitUntil: 'networkidle' });
+  await page.goto('https://zingmp3.vn/', { waitUntil: 'networkidle' });
 
   await percySnapshot(page, 'Example Page 2');
 });
