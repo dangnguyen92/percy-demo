@@ -1,13 +1,12 @@
+name: E2E Test
 on:
   push:
     branches:
       - main
-
 jobs:
   name: CI
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
