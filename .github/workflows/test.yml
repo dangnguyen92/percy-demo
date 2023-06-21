@@ -21,4 +21,6 @@ jobs:
       - name: Capture production screenshots
         run: npm run cap:pro
       - name: Start app and test
-        run: npm run start && npm run start-test
+        run: |
+          npm run start &
+          npm run test
