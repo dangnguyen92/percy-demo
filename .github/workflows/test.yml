@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - DEV-**
 
 jobs:
   e2e-test:
