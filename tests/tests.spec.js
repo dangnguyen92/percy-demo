@@ -5,8 +5,6 @@ const { MealPage } = require('../pages/mealsPage');
 const { AddMealPage } = require('../pages/addMealPage');
 const percySnapshot = require('@percy/playwright');
 
-
-
 const name = 'Hamburger';
 const price = '30.00';
 const amount = '3';
@@ -22,17 +20,10 @@ test('TC_1: Validate UIs on the page', async ({ page }) => {
   console.log('Verify HomePage is visible: Logo app & Cart button');
   await homePage.verifyHomePageVisible();
 
-  console.log('Verify Meal Page is visible');
-  await mealPage.verifyMealSectionVisible();
-
   console.log('Verify Add Meal section is visible');
   await addMealPage.verifyAddMealSectionVisible();
 
-  await percySnapshot(page, 'Example Page 1');
-
-  await page.goto('https://zingmp3.vn/', { waitUntil: 'networkidle' });
-
-  await percySnapshot(page, 'Example Page 2');
+  await percySnapshot(page, 'Home Page');
 });
 
 

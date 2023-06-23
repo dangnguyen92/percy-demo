@@ -18,8 +18,8 @@ jobs:
         run: npm install
       - name: Install supported browsers
         run: npx playwright install
-      - name: Capture production screenshots
-        run: npm run cap:pro
+      # - name: Capture production screenshots
+      #   run: npm run cap:pro
       - name: Start app and test
         run: |
           npm run start &

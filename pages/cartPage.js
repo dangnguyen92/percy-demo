@@ -1,11 +1,12 @@
 const { expect } = require('@playwright/test');
+const { BasePage } = require('./basePage');
 
-exports.CartPage = class CartPage {
+exports.CartPage = class CartPage extends BasePage {
   /**
    * @param {import('@playwright/test').Page} page
    */
   constructor(page) {
-    this.page = page;
+    super(page);
     this.cartBtn = page.locator('[data-cy="cartBtn"]');
     this.cartBtn_numberItem = page.locator('[data-cy="cartBtn_numberItem"]');
     this.cartItem = page.locator('[data-cy="cartItem"]');

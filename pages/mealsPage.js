@@ -1,11 +1,12 @@
 const { expect } = require('@playwright/test');
+const { BasePage } = require('./basePage');
 
-exports.MealPage = class MealPage {
+exports.MealPage = class MealPage extends BasePage{
   /**
    * @param {import('@playwright/test').Page} page
    */
   constructor(page) {
-    this.page = page;
+    super(page);
     this.mealSummary_title = page.locator('[data-cy="mealSummary"] h2');
     this.mealItem = page.locator('[data-cy="mealItem"]');
     this.mealItem_name = page.locator('[data-cy="mealItem_name"]');
