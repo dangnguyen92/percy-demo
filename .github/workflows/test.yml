@@ -7,7 +7,6 @@ on:
 
 jobs:
   e2e-test:
-    if: contains(github.event.branch, 'DEV-')
     runs-on: ubuntu-latest
     env:
       PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
@@ -24,20 +23,3 @@ jobs:
         run: |
           npm run start &
           npm run test
-
-  production-test:
-    if: github.event.branch == 'main'
-    runs-on: ubuntu-latest
-    env:
-      PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - name: Install dependencies
-        run: npm install
-      - name: Install supported browsers
-        run: npx playwright install
-      # - name: Start capture production screenshots
-      #   run: npm capture production
