@@ -1,3 +1,4 @@
-node_modules
-test-results
-playwright-report
+# ignore ALL files in ANY directory named after
+node_modules/
+test-results/
+playwright-report/
