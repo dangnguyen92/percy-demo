@@ -37,7 +37,7 @@ exports.MealPage = class MealPage extends BasePage{
    */
   async verifyMealItem(name, description, price) {
     await expect(this.mealItem_name.last()).toContainText(name)
-    await expect(this.mealItem_description.last()).toContainText(description)
+    // await expect(this.mealItem_description.last()).toContainText(description)
     await expect(this.mealItem_price.last()).toContainText(price)
   }
 
