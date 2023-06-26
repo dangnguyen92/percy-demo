@@ -8,4 +8,4 @@ const MealsSummary = () => {
   );
 };
 
-export default MealsSummary;
+export default Meagit slsSummary;
