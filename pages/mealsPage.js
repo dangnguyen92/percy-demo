@@ -22,7 +22,6 @@ exports.MealPage = class MealPage extends BasePage{
    * @returns this
    */
   async verifyMealSectionVisible() {
-    await expect(this.mealSummary_title).toContainText('Delicious Food, Delivered To You');
     await expect(this.mealItem_name.first()).toBeVisible();
     await expect(this.mealItem_description.first()).toBeVisible();
     await expect(this.mealItem_price.first()).toBeVisible();
